@@ -21,27 +21,34 @@ Copy the consumer key and consumer secret of your app into the ConsumerKey and C
 
 ![get credentials](images/credentials.png)
 
-### 4. Get your request token
+![manage environment](images/environment.png)
+
+### 4. Select the Xero environment
+Select Xero from the environment drop-down menu in Postman
+
+![select environment](images/select-env.png)
+
+### 5. Get your request token
 Hit Send on the GET Request Token call in Postman. 
 
 In the response section go to the Test Results tab and copy the authorization url.
 
 ![GET request token](images/request.png)
 
-### 5. Get your oauth verifier
+### 6. Get your oauth verifier
 Paste the authorization url into your browser, login to xero, select the org to connect to and copy the oauth verifier to your clipboard.
 
 ![GET oauth verifier](images/verifier.png)
 
-### 6. Get your access token
+### 7. Get your access token
 Paste the oauth verifier at the end of the GET Access Token URL in Postman. Hit Send on the request. 
 
 ![GET access token](images/access.png)
 
 Congrats! You're now authenticated and can start making API calls. Your access token will last for 30mins, after which time you'll need to report steps 4-6 to get a new token.
 
-### 7. Make your first API call!
+### 8. Make your first API call!
 Click Send on the GET Organisation request to make your first API call.
 
-### 8. Import our OpenAPI definition
+### 9. Import our OpenAPI definition
 Now that you're authenticated, import the [official Xero OpenAPI](https://github.com/XeroAPI/Xero-OpenAPI) (Swagger) description and import all the endpoints for the Accounting API. 
