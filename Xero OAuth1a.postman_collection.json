@@ -1,0 +1,374 @@
+{
+	"info": {
+		"name": "Xero OAuth1a",
+		"_postman_id": "a6bb627b-b5c2-c2a5-abd6-8c08490f2c5f",
+		"description": "A collection to authenticate to the Xero API using OAuth1.0a",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var params = responseBody.split(\"&\");",
+							"",
+							"params.forEach(function (param) {",
+							"    var parts = param.split(\"=\");",
+							"    var key = parts[0];",
+							"    var val = parts[1];",
+							"    if (postman.getEnvironmentVariable(key) !== undefined) {",
+							"        postman.setEnvironmentVariable(key, val);",
+							"    }",
+							"})",
+							"",
+							"tests[\"To get the oauth_verifier open this url in your browser https://api.xero.com/oauth/Authorize?oauth_token=\" + pm.environment.get(\"oauth_token\")] = true;"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(\"oauth_token\", \"\");",
+							"postman.setEnvironmentVariable(\"oauth_token_secret\", \"\");",
+							"postman.setEnvironmentVariable(\"Timestamp\", \"\");",
+							"postman.setEnvironmentVariable(\"Nonce\", \"\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": [
+						{
+							"key": "consumerKey",
+							"value": "{{ConsumerKey}}",
+							"type": "string"
+						},
+						{
+							"key": "consumerSecret",
+							"value": "{{ConsumerSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "token",
+							"value": "{{oauth_token}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenSecret",
+							"value": "{{oauth_token_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "signatureMethod",
+							"value": "HMAC-SHA1",
+							"type": "string"
+						},
+						{
+							"key": "timestamp",
+							"value": "{{Timestamp}}",
+							"type": "string"
+						},
+						{
+							"key": "nonce",
+							"value": "{{Nonce}}",
+							"type": "string"
+						},
+						{
+							"key": "version",
+							"value": "1.0",
+							"type": "string"
+						},
+						{
+							"key": "realm",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "addParamsToHeader",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "autoAddParam",
+							"type": "any"
+						},
+						{
+							"key": "addEmptyParamsToSign",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": ""
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://api.xero.com/oauth/RequestToken",
+					"protocol": "https",
+					"host": [
+						"api",
+						"xero",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"RequestToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var params = responseBody.split(\"&\");",
+							"",
+							"params.forEach(function (param) {",
+							"    var parts = param.split(\"=\");",
+							"    var key = parts[0];",
+							"    var val = parts[1];",
+							"    if (postman.getEnvironmentVariable(key) !== undefined) {",
+							"        postman.setEnvironmentVariable(key, val);",
+							"        tests[\"Environment variable {{\" + key + \"}} is now set\"] = true;",
+							"    }",
+							"})",
+							""
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(\"Timestamp\", \"\");",
+							"postman.setEnvironmentVariable(\"Nonce\", \"\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": [
+						{
+							"key": "consumerKey",
+							"value": "{{ConsumerKey}}",
+							"type": "string"
+						},
+						{
+							"key": "consumerSecret",
+							"value": "{{ConsumerSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "token",
+							"value": "{{oauth_token}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenSecret",
+							"value": "{{oauth_token_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "signatureMethod",
+							"value": "HMAC-SHA1",
+							"type": "string"
+						},
+						{
+							"key": "timestamp",
+							"value": "{{Timestamp}}",
+							"type": "string"
+						},
+						{
+							"key": "nonce",
+							"value": "{{Nonce}}",
+							"type": "string"
+						},
+						{
+							"key": "version",
+							"value": "1.0",
+							"type": "string"
+						},
+						{
+							"key": "realm",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "addParamsToHeader",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "autoAddParam",
+							"type": "any"
+						},
+						{
+							"key": "addEmptyParamsToSign",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": ""
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "https://api.xero.com/oauth/AccessToken?oauth_verifier=",
+					"protocol": "https",
+					"host": [
+						"api",
+						"xero",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"AccessToken"
+					],
+					"query": [
+						{
+							"key": "oauth_verifier",
+							"value": "",
+							"equals": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Organisation",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(\"Timestamp\", \"\");",
+							"postman.setEnvironmentVariable(\"Nonce\", \"\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth1",
+					"oauth1": [
+						{
+							"key": "consumerKey",
+							"value": "{{ConsumerKey}}",
+							"type": "string"
+						},
+						{
+							"key": "consumerSecret",
+							"value": "{{ConsumerSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "token",
+							"value": "{{oauth_token}}",
+							"type": "string"
+						},
+						{
+							"key": "tokenSecret",
+							"value": "{{oauth_token_secret}}",
+							"type": "string"
+						},
+						{
+							"key": "signatureMethod",
+							"value": "HMAC-SHA1",
+							"type": "string"
+						},
+						{
+							"key": "timestamp",
+							"value": "{{Timestamp}}",
+							"type": "number"
+						},
+						{
+							"key": "nonce",
+							"value": "{{Nonce}}",
+							"type": "string"
+						},
+						{
+							"key": "version",
+							"value": "1.0",
+							"type": "string"
+						},
+						{
+							"key": "realm",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "addParamsToHeader",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "autoAddParam",
+							"type": "any"
+						},
+						{
+							"key": "addEmptyParamsToSign",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": ""
+					},
+					{
+						"key": "accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.xero.com/api.xro/2.0/Organisation",
+					"protocol": "https",
+					"host": [
+						"api.xero.com"
+					],
+					"path": [
+						"api.xro",
+						"2.0",
+						"Organisation"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
