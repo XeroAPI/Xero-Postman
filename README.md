@@ -19,7 +19,6 @@ If you haven't already signed up for a xero account you can do so [here](https:/
 ### 3. Add your consumer key and consumer secret to the Xero environment variables in Postman
 Copy the consumer key and consumer secret of your app into the ConsumerKey and ConsumerSecret environment varaibles in Postman.
 
-![get credentials](images/credentials.png)
 
 ![manage environment](images/environment.png)
 
