@@ -5,7 +5,7 @@ A Postman collection for authenticating to the Xero API.
 Follow these steps to quickly get up and running with the Xero API and Postman:
 
 ### 1. Import the Xero OAuth1a collection and Xero postman environment into Postman
-Click the Import button in Postman and import [Xero OAuth1a.postman_collection.json](Xero%20OAuth1a.postman_collection.json) and [Xero.postman_environment.json](Xero.postman_environment.json).
+Click the Import button in Postman and import [Xero OAuth1a.postman_collection.json](https://raw.githubusercontent.com/XeroAPI/Xero-Postman/master/Xero%20OAuth1a.postman_collection.json) and [Xero.postman_environment.json](https://raw.githubusercontent.com/XeroAPI/Xero-Postman/master/Xero.postman_environment.json).
 
 ### 2. Create a public app at https://developer.xero.com/myapps
 Go to the Xero developer portal and create a public app.
