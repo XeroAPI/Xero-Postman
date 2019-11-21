@@ -1,5 +1,5 @@
 # Xero-Postman
-A Postman collection for authenticating to the Xero API. Please note that this collection provides access using OAuth 1.0a API. Our newer collection using OAuth 2.0 can be found [here](https://github.com/XeroAPI/xero-postman-oauth2).  
+A Postman collection for authenticating to the Xero API. Please note that this collection provides access using OAuth 1.0a. Our newer collection using OAuth 2.0 can be found [here](https://github.com/XeroAPI/xero-postman-oauth2).  
 
 ## Steps to get up and running
 Follow these steps to quickly get up and running with the Xero API and Postman:
