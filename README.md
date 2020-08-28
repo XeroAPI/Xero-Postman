@@ -43,7 +43,8 @@ Paste the authorization url into your browser, login to xero, select the org to 
 ![GET oauth verifier](images/verifier.png)
 
 ### 7. Get your access token
-Paste the oauth verifier at the end of the GET Access Token URL in Postman. Hit Send on the request. 
+~~Paste the oauth verifier at the end of the GET Access Token URL in Postman. Hit Send on the request. ~~
+Select the Authorization tab, paste the verifier into the Verifier box under ADVANCED 
 
 ![GET access token](images/access.png)
 
